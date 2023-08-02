@@ -13,3 +13,5 @@ Input_Time: The starting time
 Input_Duration: The time that will be added to the starting time
 
 Input_Optional_day: Tells the user what day the duration will end based on the day inputted (Optional parameter)
+
+Program built and tested by https://github.com/DEDMURDERER
