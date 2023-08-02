@@ -1,3 +1,5 @@
+#Program built and tested by https://github.com/DEDMURDERER
+
 def add_time(start, duration, optional="null"):
 
   #Decomposing starting time
