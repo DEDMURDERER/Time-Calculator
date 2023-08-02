@@ -78,3 +78,6 @@ def add_time(start, duration, optional="null"):
     new_time = new_time + " (" + str(day_passed) + " days later)"
 
   return new_time
+
+result = add_time(Input_Time, Input_Duration, Input_Optional_Day)
+print(result)
