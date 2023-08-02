@@ -1,4 +1,4 @@
-#Program built and tested by https://github.com/DEDMURDERER
+#Program built and tested by https://github.com/Raed-Mardoum
 
 def add_time(start, duration, optional="null"):
 
