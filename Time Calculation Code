@@ -1,0 +1,80 @@
+def add_time(start, duration, optional="null"):
+
+  #Decomposing starting time
+  start_time, time_cycle = start.split(" ")
+  start_hour, start_minute = start_time.split(":")
+
+  #Decomposing duration time
+  duration_hour, duration_minute = duration.split(":")
+
+  #Counting days
+  day_passed = 0
+
+  #Extra Variables
+  am = "AM"
+  pm = "PM"
+  optional = optional.lower()
+  day_of_week = [
+      "monday", "tuesday", "wednesday", "thursday", "friday", "saturday",
+      "sunday"
+  ]
+
+  week_day = [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+      "Sunday"
+  ]
+
+
+  start_hour = int(start_hour)
+  start_minute = int(start_minute)
+  duration_hour = int(duration_hour)
+  duration_minute = int(duration_minute)
+
+  #Adding Time
+  new_hour, new_minute = start_hour + duration_hour, start_minute + duration_minute
+
+  #Converting Minutes to Hours
+  while new_minute > 60:
+    new_minute -= 60
+    new_hour += 1
+
+  
+  #Adding a 0 for minutes
+  if new_minute < 10:
+    new_minute = '0' + str(new_minute)
+
+
+  #Converting hours to days
+  while new_hour >= 12:
+    if time_cycle == am:
+      time_cycle = pm
+      new_hour -= 12
+
+    else:
+      time_cycle = am
+      new_hour -= 12
+      day_passed += 1
+
+  if new_hour == 0:
+    new_hour = 12
+  #Returning new time
+  new_time = str(new_hour) + ":" + str(new_minute) + " " + time_cycle
+
+  if optional != "null":
+    for i in day_of_week:
+      if optional == i:
+        index = day_of_week.index(optional)
+        index = index + day_passed
+
+        while index > 6:
+          index -= 7
+
+        new_time = new_time + ", " + week_day[index]
+
+  if day_passed == 1:
+    new_time = new_time + " " + "(next day)"
+  
+  if day_passed > 1:
+    new_time = new_time + " (" + str(day_passed) + " days later)"
+
+  return new_time
